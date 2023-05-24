@@ -1,0 +1,36 @@
+binding.listView.setAdapter(arrayAdapter);
+        binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this,stadiumArrayList.get(position).name,Toast.LENGTH_LONG);
+                Intent intent = new Intent(MainActivity.this,DetailsActivity.class);
+                intent.putExtra("stadium",stadiumArrayList.get(position));
+            }
+        });
+
+binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { ... });
+Bu satır, ListView'ın öğelerine tıklandığında gerçekleştirilecek bir olay dinleyicisi (OnItemClickListener) ayarlar.
+new AdapterView.OnItemClickListener() { ... } bölümü, anonim bir sınıf oluşturarak OnItemClickListener arayüzünü uygular ve aşağıdaki onItemClick metodu üzerine geçerli bir işlem tanımlar.
+
+public void onItemClick(AdapterView<?> parent, View view, int position, long id) { ... }
+Bu metod, bir ListView öğesine tıklandığında çağrılır ve tıklanan öğe hakkında bilgi sağlar. Parametreler şu şekildedir:
+
+parent: Tıklanan öğenin bulunduğu AdapterView nesnesini temsil eder (bu durumda ListView).
+view: Tıklanan öğenin görünümünü temsil eder.
+position: Tıklanan öğenin indeksini temsil eder.
+id: Tıklanan öğenin benzersiz bir kimliğini temsil eder.
+Toast.makeText(MainActivity.this, stadiumArrayList.get(position).name, Toast.LENGTH_LONG);
+
+Bu satır, tıklanan stadyumun adını içeren bir Toast mesajı oluşturur.
+makeText metoduna, geçerli etkinliği (MainActivity.this), tıklanan stadyumun adını (stadiumArrayList.get(position).name) ve mesajın görüntüleneceği süreyi (Toast.LENGTH_LONG) geçirir.
+
+Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+Bu satır, DetailsActivity sınıfına bir geçiş yapmak için bir Intent oluşturur.
+MainActivity.this, geçerli etkinliği temsil ederken, DetailsActivity.class hedef etkinliği temsil eder.
+
+intent.putExtra("stadium", stadiumArrayList.get(position));
+Bu satır, Intent nesnesine "stadium" adıyla bir ekstra veri ekler.
+stadiumArrayList.get(position) ifadesi, tıklanan öğenin stadiumArrayList listesindeki ilgili stadyum nesnesini temsil eder.
+Bu şekilde, DetailsActivity'ye geçiş sırasında tıklanan stadyumun bilgisi taşınmış olur.
+
+startActivity(intent); Oluşturulan Intent kullanılarak yeni Activity başlatılır ve kullanıcı "DetailsActivity" sayfasına geçer.

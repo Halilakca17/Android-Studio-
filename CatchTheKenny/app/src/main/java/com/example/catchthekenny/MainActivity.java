@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView timeText;
     int score;
     ImageView imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9;
-    ImageView[] imageViewsArray;
+    ImageView[] imageViewsArray ;
     Handler handler;
     Runnable runnable;
 

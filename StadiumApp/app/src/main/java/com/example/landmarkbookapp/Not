@@ -1,0 +1,19 @@
+private ResultProfileBinding binding;: ResultProfileBinding adında bir sınıfın örneğini (instance) tutacak olan binding adlı bir değişken tanımlanıyor.
+Bu değişken, olayları ve görünümleri (views) birbirine bağlamak için kullanılır.
+ResultProfileBinding, genellikle View Binding veya Data Binding gibi veri bağlama kütüphaneleri kullanılarak oluşturulan bir sınıftır.
+
+@Override protected void onCreate(Bundle savedInstanceState) {: onCreate adlı bir yöntemi geçersiz kılar (override) ve savedInstanceState adlı bir Bundle nesnesini parametre olarak alır.
+onCreate, bir Activity'nin oluşturulduğunda çağrılan ve kullanıcı arayüzünün oluşturulması ve hazırlanması için kullanılan bir yöntemdir.
+
+super.onCreate(savedInstanceState);: Bu satır, üst sınıf olan Activity sınıfının onCreate yöntemini çağırır. Bu, Activity'nin temel işlevselliğini gerçekleştirmesine izin verir.
+
+binding = ResultProfileBinding.inflate(getLayoutInflater());: Bu satırda, ResultProfileBinding sınıfından bir örnek (instance) oluşturuluyor ve binding değişkenine atılıyor.
+inflate yöntemi, XML düzen dosyasını (layout file) kullanarak bir görünüm ağacını oluşturur ve bu örneğe erişim sağlar.
+getLayoutInflater() yöntemi, LayoutInflater sınıfından bir örneği alır ve bu örneği kullanarak XML düzen dosyasını şişirir.
+
+View view = binding.getRoot();: Bu satırda, binding örneğinden kök (root) görünüm alınıyor ve view değişkenine atanıyor. Kök görünüm, şişirilen görünüm ağacının en üst düğümüdür.
+
+setContentView(view);: Bu satırda, Activity'nin içeriği (content) view değişkenindeki görünüm ağacı olarak ayarlanıyor. setContentView yöntemi, kullanıcı arayüzünün oluşturulmasını tamamlar ve görünüm ağacını ekranda gösterir.
+
+Yani, bu kod parçası, ResultProfileBinding adında bir sınıf kullanarak bir kullanıcı arayüzü oluşturur ve bu arayüzü Activity'nin içeriği olarak ayarlar.
+Bu yöntem, Activity'nin başlatıldığında çağrılır ve kullanıcı arayüzünü oluşturmak için kullanılır.
